@@ -1,0 +1,27 @@
+<div class="header">
+    <div class="filters">
+        <select class="border" [(ngModel)]="selectedFilters.cityFrom">
+            <option [value]="undefined" [selected]="true" [disabled]="true" [hidden]="true">{{'Откуда'}}</option>
+            <option [ngValue]="i" *ngFor="let i of cities">{{i.name}}, {{i.country}}</option>
+            <option [value]="selectedFilters?.cityFrom" [selected]="true" [disabled]="true">
+                {{selectedFilters.cityFrom?.name}}, {{selectedFilters.cityFrom?.country}}
+            </option>
+        </select>
+        <select class="border" [(ngModel)]="selectedFilters.cityTo">
+            <option [value]="undefined" [selected]="true" [disabled]="true" [hidden]="true">{{'Куда'}}</option>
+            <option [ngValue]="i" *ngFor="let i of cities">{{i.name}}, {{i.country}}</option>
+            <option [value]="selectedFilters?.cityTo" [selected]="true" [disabled]="true">
+                {{selectedFilters.cityTo?.name}}, {{selectedFilters.cityTo?.country}}
+            </option>
+        </select>
+        <input class="date-input border" type="text" [(ngModel)]="selectedFilters.dateStart" placeholder="{{'Туда'}}"
+               onMouseOver="(this.type='date')">
+        <input class="date-input border" type="text" [(ngModel)]="selectedFilters.dateEnd" placeholder="{{'Обратно'}}"
+               onMouseOver="(this.type='date')">
+        <input class="count-input border" type="number" [(ngModel)]="selectedFilters.passengersCount">
+        <button class="button" (click)="onSearchClick()">{{"Найти тур"}}</button>
+    </div>
+    <div class="filters copy" *ngIf="isCopyAvailable()">
+        <button class="button" (click)="copyToClipboard()">{{'Копировать ссылку'}}</button>
+    </div>
+</div>

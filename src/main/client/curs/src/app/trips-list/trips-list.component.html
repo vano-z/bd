@@ -1,0 +1,11 @@
+<div class="trips-list">
+    <div class="parent" *ngFor="let trip of tripsList">
+        <trip-details-with-hotels *ngIf="trip.withHotel"
+                                    [trip]="trip"
+                                    [filters]="filters">
+        </trip-details-with-hotels>
+
+        <trip-details *ngIf="!trip.withHotel">
+        </trip-details>
+    </div>
+</div>

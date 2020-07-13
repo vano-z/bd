@@ -1,0 +1,44 @@
+.details {
+  border: #d2d2d2 1px solid;
+  padding: 20px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+
+  .time {
+    font-size: 20px;
+  }
+
+  .hotel {
+    line-height: 27px;
+    margin-top: 20px;
+  }
+
+  .radio {
+    margin-top: 25px;
+    line-height: 25px;
+  }
+
+  .button {
+    width: 140px;
+    line-height: 20px;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .button:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-1px);
+    &.bought {
+
+    }
+  }
+}

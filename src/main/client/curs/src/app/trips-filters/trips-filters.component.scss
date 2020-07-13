@@ -1,0 +1,51 @@
+.header {
+  background-color: #3f83ff;
+  padding: 50px 165px;
+  position: fixed;
+  width: -webkit-fill-available;
+
+  .filters {
+    display: flex;
+    justify-content: space-around;
+    height: 35px;
+
+    &.copy {
+      margin-top: 10px;
+      float: right;
+      height: 20px;
+    }
+
+    .border {
+      border: none;
+      border-radius: 7px;
+    }
+
+    .date-input {
+      width: 130px;
+    }
+
+    .count-input {
+      width: 40px;
+      text-align: center;
+    }
+
+    .button {
+      width: 140px;
+      color: #000;
+      background-color: #fff;
+      border: none;
+      border-radius: 45px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .button:hover {
+      background-color: #2EE59D;
+      box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+  }
+}

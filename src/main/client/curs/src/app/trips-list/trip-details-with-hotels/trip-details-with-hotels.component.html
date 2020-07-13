@@ -1,0 +1,63 @@
+<div class="details">
+    <div>
+        <div>
+            <div class="time">{{service.getDateTime(trip.dateStartFrom).time}}</div>
+            <div>{{filters.cityFrom.name}}</div>
+            <div>{{service.getDateTime(trip.dateStartFrom).date}}</div>
+        </div>
+        <div style="margin-top: 10px">
+            <div class="time">{{service.getDateTime(trip.dateStartTo).time}}</div>
+            <div>{{filters.cityTo.name}}</div>
+            <div>{{service.getDateTime(trip.dateStartTo).date}}</div>
+        </div>
+    </div>
+    <div class="radio" (click)="checkCost()">
+        <form [formGroup]="formIn">
+            <input type="radio" formControlName="seatIn" value="0">Эконом<br>
+            <input type="radio" formControlName="seatIn" value="1">Бизнес<br>
+            <input type="radio" formControlName="seatIn" value="2">VIP
+        </form>
+    </div>
+
+
+    <div class="hotel" (click)="checkCost()">
+        <div style="font-size: 20px">{{'Отели:'}}</div>
+        <select style="width: 100%" [(ngModel)]="selectedTrip.hotel">
+            <option [ngValue]="hotel" *ngFor="let hotel of trip.hotels">{{hotel.name}}</option>
+        </select>
+        <div *ngIf="selectedTrip.hotel">{{'Адресс: '}}{{selectedTrip.hotel.address}}</div>
+    </div>
+
+    <div class="radio" (click)="checkCost()">
+        <form [formGroup]="formHotel">
+            <input type="radio" formControlName="type" value="0">Эконом<br>
+            <input type="radio" formControlName="type" value="1">Комфорт<br>
+            <input type="radio" formControlName="type" value="2">Lux
+        </form>
+    </div>
+
+    <div>
+        <div>
+            <div class="time">{{service.getDateTime(trip.dateEndFrom).time}}</div>
+            <div>{{filters.cityTo.name}}</div>
+            <div>{{service.getDateTime(trip.dateEndFrom).date}}</div>
+        </div>
+        <div style="margin-top: 10px">
+            <div class="time">{{service.getDateTime(trip.dateEndTo).time}}</div>
+            <div>{{filters.cityFrom.name}}</div>
+            <div>{{service.getDateTime(trip.dateEndTo).date}}</div>
+        </div>
+    </div>
+    <div class="radio" (click)="checkCost()" id="click">
+        <form [formGroup]="formBack">
+            <input type="radio" formControlName="seatBack" value="0">Эконом<br>
+            <input type="radio" formControlName="seatBack" value="1">Бизнес<br>
+            <input type="radio" formControlName="seatBack" value="2">VIP
+        </form>
+    </div>
+
+    <div style="margin-top: 45px">
+        <button class="button" *ngIf="!bought" (click)="onByTicket()">{{'Купить тур'}}<br>{{cost}} {{'руб'}}</button>
+        <button class="button" *ngIf="bought">{{'Куплено'}}<br>{{cost}} {{'руб'}}</button>
+    </div>
+</div>
